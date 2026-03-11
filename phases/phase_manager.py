@@ -1,4 +1,4 @@
-from phases.level1 import Level1
+from core.scene_maneger import Phase1
 
 
 class PhaseManager:
@@ -8,4 +8,4 @@ class PhaseManager:
 
     def get_initial_phase(self):
         """Retorna a fase inicial do jogo."""
-        return Level1(self.game)    
+        return Phase1(self.game)    
