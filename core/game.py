@@ -20,3 +20,27 @@ class Game:
     def draw(self, screen):
         """Desenha a fase atual."""
         self.current_phase.draw(screen)
+
+    def run(self):
+        import sys
+        from config.settings import FPS
+
+        clock = pygame.time.Clock()
+        running = True
+
+        while running:
+            dt = clock.tick(FPS) / 1000
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+
+                self.handle_event(event)
+
+            self.update(dt)
+            self.draw(self.screen)
+
+            pygame.display.flip()
+
+        pygame.quit()
+        sys.exit()
